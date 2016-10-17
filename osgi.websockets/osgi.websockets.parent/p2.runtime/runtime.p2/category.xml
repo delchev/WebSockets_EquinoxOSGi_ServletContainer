@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="osgi.websockets.runtime.feature" version="0.0.0">
+      <category name="osgi-websockets-runtime"/>
+   </feature>
+   <category-def name="osgi-websockets-runtime" label="OSGi Websockets Runtime Bundles"/>
+</site>

@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: osgi.websockets.bridge
+Bundle-SymbolicName: osgi.websockets.bridge;singleton:=true
+Bundle-Version: 2.5.160804
+Bundle-Vendor: SAP AG
+Require-Bundle: org.eclipse.equinox.servletbridge
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: javax.servlet,
+ javax.servlet.annotation,
+ javax.servlet.descriptor,
+ javax.servlet.http,
+ javax.websocket,
+ javax.websocket.server,
+ org.slf4j
+Bundle-ClassPath: .
+Export-Package: osgi.websockets.bridge

@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: osgi.websockets.runtime.metrics
+Bundle-SymbolicName: osgi.websockets.runtime.metrics;singleton:=true
+Bundle-Version: 2.5.160804
+Bundle-Vendor: SAP AG
+Require-Bundle: org.eclipse.equinox.http.registry,
+ org.eclipse.equinox.http.servlet,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: javax.servlet,
+ javax.servlet.annotation,
+ javax.servlet.descriptor,
+ javax.servlet.http,
+ javax.websocket,
+ javax.websocket.server,
+ osgi.websockets.bridge,
+ org.slf4j
+Bundle-ActivationPolicy: lazy
+Export-Package: osgi.websockets.runtime.metrics
+Bundle-Activator: osgi.websockets.runtime.metrics.MetricsActivator
+Bundle-ClassPath: .

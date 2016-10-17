@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+	<display-name>OSGi Websockets Demo</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	
+	<servlet id="bridge">
+		<description>Equinox Bridge Servlet</description>
+		<display-name>Equinox Bridge Servlet</display-name>
+		<servlet-name>equinoxbridgeservlet</servlet-name>
+		<servlet-class>osgi.websockets.bridge.OSGiBridge</servlet-class>
+
+		<!-- Framework Controls could be useful for testing purpose, but we disable 
+			it per default -->
+		<init-param>
+			<param-name>enableFrameworkControls</param-name>
+			<param-value>false</param-value>
+		</init-param>
+
+		<!-- Enable multi-language support for the extension registry -->
+		<!-- the OSGi console is useful for trouble shooting but will fill up your 
+			appserver log quickly, so deactivate on production use. Uncomment the -console 
+			parameter to enabled OSGi console access. -->
+		<init-param>
+			<param-name>commandline</param-name>
+			<param-value>-registryMultiLanguage -console</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>extendedFrameworkExports</param-name>
+			<param-value>org.apache.naming.java,org.apache.tomcat.dbcp.dbcp</param-value>
+		</init-param>
+		
+		<load-on-startup>2</load-on-startup>
+
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>equinoxbridgeservlet</servlet-name>
+		<url-pattern>/services/*</url-pattern>
+	</servlet-mapping>	
+
+
+	<!-- Security -->
+	
+	<!-- Basic -->
+	<login-config>
+		<auth-method>BASIC</auth-method>
+	</login-config>
+	
+	
+
+	<!-- OSGi Websockets Services -->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>OSGi Websockets Constraints</web-resource-name>
+			<url-pattern>/log</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>Operator</role-name>
+		</auth-constraint>
+	</security-constraint>
+	
+	
+	<security-role>
+		<description>Operator can perform actions on OSGi Websockets services</description>
+		<role-name>Operator</role-name>
+	</security-role>
+	
+	
+</web-app>

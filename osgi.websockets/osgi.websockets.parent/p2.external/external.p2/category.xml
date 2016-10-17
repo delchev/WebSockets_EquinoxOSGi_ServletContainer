@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="osgi.websockets.external.feature" version="0.0.0">
+      <category name="osgi-websockets-external"/>
+   </feature>
+   <category-def name="osgi-websockets-external" label="OSGi Websockets External Bundles"/>
+</site>

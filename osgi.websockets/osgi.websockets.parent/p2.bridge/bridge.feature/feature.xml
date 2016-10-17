@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="osgi.websockets.bridge.feature"
+      label="OSGi Websockets Bridge Bundles Feature"
+      version="2.5.160804"
+      provider-name="Eclipse.org">
+
+   <license url="https://www.eclipse.org/legal/epl-v10.html">
+      Eclipse Public License - v 1.0
+   </license>
+
+   <plugin
+         id="osgi.websockets.bridge"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
